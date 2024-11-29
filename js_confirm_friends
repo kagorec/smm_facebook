@@ -1,0 +1,30 @@
+// Use browser console
+// Javascript for ../friends/requests page
+
+// XPath of the button to be clicked
+const buttonXPath = "//span[text()='Confirm']";
+
+// Click interval in milliseconds (minimum 123 ms, maximum 1235 ms)
+const minInterval = 789;    // Minimum interval
+const maxInterval = 1567;   // Maximum interval
+
+// Function to get a random interval
+function getRandomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Function to click the button
+function clickButton() {
+  const button = document.evaluate(buttonXPath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  if (button) {
+    button.click();
+    console.log('Button clicked!');
+  } else {
+    console.error('Button not found with the specified XPath.');
+  }
+}
+
+// Start a timer for regular clicking
+const intervalId = setInterval(clickButton, getRandomInterval(minInterval, maxInterval));
+
+// To stop the script, execute clearInterval(intervalId) in the console
