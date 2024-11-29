@@ -1,4 +1,7 @@
 ```javascript
+// Delete all friends in ../friends/list
+// Use javascript in browser console
+
 // Function for delay
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
